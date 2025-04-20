@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2nd Monthsary, My Minamahal! 🌷💖</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@400;700&family=Pacifico&family=Annie+Use+Your+Telescope&family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+    <!-- Lightbox2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://www.freevector.com/uploads/vector/preview/18969/33.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Animated Background Elements */
+        .petal {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23f8b2c9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 14v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: fall 12s linear infinite;
+            z-index: 1;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 0.9; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .sparkle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #e8d4f0;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+            z-index: 1;
+        }
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+        .header {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(255, 244, 230, 0.95); /* Cream #fff4e6 */
+            border-radius: 70px;
+            margin: 60px auto;
+            max-width: 1300px;
+            box-shadow: 0 25px 80px rgba(248, 178, 201, 0.5); /* Pink #f8b2c9 */
+            position: relative;
+            z-index: 2;
+            border: 8px solid #d8b8e0; /* Soft Purple */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" stroke="%23e8d4f0" stroke-width="1"><circle cx="25" cy="25" r="10"/></svg>');
+            background-size: 30px;
+        }
+        .header h1 {
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-size: 6rem;
+            background: linear-gradient(90deg, #f8b2c9, #f7a7b4); /* Pink to Coral */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 8px 8px 12px rgba(255, 255, 255, 0.9);
+            animation: bounce 2s infinite;
+        }
+        .header p {
+            font-family: 'Annie Use Your Telescope', cursive;
+            font-size: 2.4rem;
+            color: #f8b2c9; /* Pink */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+        .interactive-btn {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #f8b2c9, #f7a7b4); /* Pink to Coral */
+            color: white;
+            border: none;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 15px;
+            box-shadow: 0 8px 20px rgba(248, 178, 201, 0.6);
+        }
+        .interactive-btn:hover {
+            transform: scale(1.25);
+            box-shadow: 0 12px 30px rgba(248, 178, 201, 0.8);
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+        .photo-gallery {
+            padding: 60px;
+            max-width: 1700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .photo-card {
+            margin-bottom: 30px;
+            background: #fff4e6; /* Cream */
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(248, 178, 201, 0.4);
+            padding: 20px;
+            border: 5px solid #d8b8e0; /* Soft Purple */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="%23e8d4f0" opacity="0.2"><circle cx="25" cy="25" r="5"/></svg>');
+            background-size: 30px;
+        }
+        .photo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(248, 178, 201, 0.6);
+        }
+        .polaroid-frame {
+            background: #fff4e6; /* Cream */
+            padding: 20px 20px 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            position: relative;
+            background-image: linear-gradient(45deg, #fff4e6, #fdf9f2); /* Cream to Off-White */
+        }
+        .polaroid-frame::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 30px;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23f8b2c9"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+        .polaroid-frame::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 20px;
+            background: linear-gradient(45deg, #f7a7b4, #e8d4f0); /* Coral to Lavender */
+            transform: rotate(45deg);
+            border-radius: 5px;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid #fdf9f2; /* Off-White */
+            filter: brightness(95%) contrast(110%) sepia(15%);
+            position: relative;
+            z-index: 1;
+        }
+        .photo-caption {
+            font-family: 'Annie Use Your Telescope', cursive;
+            font-size: 1.6rem;
+            text-align: center;
+            margin-top: 15px;
+            background: linear-gradient(90deg, #f8b2c9, #f7a7b4); /* Pink to Coral */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        }
+        .message-section {
+            background: rgba(255, 244, 230, 0.95); /* Cream */
+            border-radius: 70px;
+            padding: 90px;
+            margin: 90px auto;
+            max-width: 1300px;
+            box-shadow: 0 25px 80px rgba(248, 178, 201, 0.5);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 8px dashed #d8b8e0; /* Soft Purple */
+            display: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" stroke="%23e8d4f0" stroke-width="1"><path d="M30 55c-13.81 0-25-11.19-25-25S16.19 5 30 5s25 11.19 25 25-11.19 25-25 25zM30 15c-8.28 0-15 6.72-15 15s6.72 15 15 15 15-6.72 15-15-6.72-15-15-15z"/></svg>');
+            background-size: 40px;
+        }
+        .message-section.active {
+            display: block;
+        }
+        .message-section h2 {
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-size: 5rem;
+            background: linear-gradient(90deg, #f8b2c9, #f7a7b4); /* Pink to Coral */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 50px;
+        }
+        .message-section p {
+            font-family: 'Annie Use Your Telescope', cursive;
+            font-size: 2rem;
+            line-height: 2.3;
+            color: #333;
+            background: #fff4e6; /* Cream */
+            padding: 50px;
+            border-radius: 35px;
+            border: 6px solid #d8b8e0; /* Soft Purple */
+        }
+        .heart-animation {
+            margin-top: 70px;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background: #f7a7b4; /* Coral */
+            position: relative;
+            transform: rotate(-45deg);
+            animation: pulse 0.7s infinite;
+            margin: 0 auto;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            background: #f7a7b4; /* Coral */
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before { top: -50px; left: 0; }
+        .heart::after { left: 50px; top: 0; }
+        @keyframes pulse {
+            0% { transform: rotate(-45deg) scale(1); }
+            50% { transform: rotate(-45deg) scale(1.7); }
+            100% { transform: rotate(-45deg) scale(1); }
+        }
+        /* Love Jar Section */
+        .love-jar-section {
+            text-align: center;
+            padding: 70px;
+            margin: 70px auto;
+            max-width: 1000px;
+            background: rgba(255, 244, 230, 0.95); /* Cream */
+            border-radius: 60px;
+            box-shadow: 0 20px 70px rgba(248, 178, 201, 0.5);
+            position: relative;
+            z-index: 2;
+            border: 6px solid #d8b8e0; /* Soft Purple */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="%23e8d4f0"><path d="M25 43.75l-1.45-1.32C18.4 37.86 15 34.78 15 30.5c0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 4.28-3.4 7.36-8.55 12.04L25 43.75z"/></svg>');
+            background-size: 35px;
+        }
+        .love-jar-section h2 {
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-size: 4rem;
+            color: #f8b2c9; /* Pink */
+        }
+        .love-jar-message {
+            font-family: 'Annie Use Your Telescope', cursive;
+            font-size: 1.9rem;
+            color: #333;
+            background: #fff4e6; /* Cream */
+            padding: 30px;
+            border-radius: 30px;
+            margin-top: 30px;
+            min-height: 140px;
+            transition: transform 0.3s ease;
+        }
+        .love-jar-message.shake {
+            animation: shake 0.5s ease;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            75% { transform: translateX(15px); }
+        }
+        /* Memory Game Section */
+        .memory-game-section {
+            padding: 70px;
+            margin: 70px auto;
+            max-width: 1200px;
+            background: rgba(255, 244, 230, 0.95); /* Cream */
+            border-radius: 60px;
+            box-shadow: 0 20px 70px rgba(248, 178, 201, 0.5);
+            position: relative;
+            z-index: 2;
+            border: 6px solid #d8b8e0; /* Soft Purple */
+            text-align: center;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" stroke="%23e8d4f0" stroke-width="1"><path d="M10 10h30v30H10z"/></svg>');
+            background-size: 30px;
+        }
+        .memory-game-section h2 {
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-size: 4rem;
+            color: #f8b2c9; /* Pink */
+            margin-bottom: 30px;
+        }
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 130px);
+            gap: 20px;
+            justify-content: center;
+        }
+        .memory-card {
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(45deg, #f8b2c9, #e8d4f0); /* Pink to Lavender */
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            position: relative;
+            border: 3px solid #fdf9f2; /* Off-White */
+        }
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+        }
+        .memory-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            border: 4px solid #fdf9f2; /* Off-White */
+        }
+        .memory-card .back {
+            font-family: 'Annie Use Your Telescope', cursive;
+            font-size: 1.6rem;
+            color: #f8b2c9; /* Pink */
+            backface-visibility: hidden;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="%23f7a7b4"><path d="M20 28.75l-1.45-1.32C13.4 22.86 10 19.78 10 15.5c0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 4.28-3.4 7.36-8.55 12.04L20 28.75z"/></svg>') no-repeat center;
+            background-size: 40px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Love Notes Section */
+        .love-notes-section {
+            text-align: center;
+            padding: 70px;
+            margin: 70px auto;
+            max-width: 1000px;
+            background: rgba(255, 244, 230, 0.95); /* Cream */
+            border-radius: 60px;
+            box-shadow: 0 20px 70px rgba(248, 178, 201, 0.5);
+            position: relative;
+            z-index: 2;
+            border: 6px solid #d8b8e0; /* Soft Purple */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="%23e8d4f0"><circle cx="25" cy="25" r="5"/></svg>');
+            background-size: 30px;
+        }
+        .love-notes-section h2 {
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-size: 4rem;
+            color: #f8b2c9; /* Pink */
+        }
+        .love-note {
+            position: fixed;
+            width: 200px;
+            padding: 20px;
+            background: #fff4e6; /* Cream */
+            border-radius: 20px;
+            border: 4px solid #f8b2c9; /* Pink */
+            box-shadow: 0 10px 30px rgba(248, 178, 201, 0.5);
+            font-family: 'Annie Use Your Telescope', cursive;
+            font-size: 1.4rem;
+            color: #333;
+            text-align: center;
+            z-index: 3;
+            opacity: 0;
+            animation: floatIn 1s ease forwards;
+            transform: rotate(0deg);
+        }
+        .love-note:nth-child(odd) {
+            transform: rotate(10deg);
+        }
+        .love-note:nth-child(even) {
+            transform: rotate(-10deg);
+        }
+        @keyframes floatIn {
+            0% { opacity: 0; transform: translateY(50px) rotate(0deg); }
+            100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+        }
+        /* Divider */
+        .divider {
+            width: 80%;
+            height: 10px;
+            background: linear-gradient(90deg, #f8b2c9, #f7a7b4, #f8b2c9); /* Pink to Coral */
+            margin: 50px auto;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(248, 178, 201, 0.5);
+        }
+        footer {
+            text-align: center;
+            padding: 70px;
+            background: rgba(255, 244, 230, 0.95); /* Cream */
+            margin-top: 70px;
+            font-family: 'Annie Use Your Telescope', cursive;
+            font-size: 2rem;
+            color: #f8b2c9; /* Pink */
+            border-top: 8px solid #f7a7b4; /* Coral */
+            position: relative;
+            z-index: 2;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="%23e8d4f0"><path d="M25 43.75l-1.45-1.32C18.4 37.86 15 34.78 15 30.5c0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 4.28-3.4 7.36-8.55 12.04L25 43.75z"/></svg>');
+            background-size: 30px;
+        }
+        @media (max-width: 992px) {
+            .memory-grid { grid-template-columns: repeat(3, 110px); }
+            .memory-card { width: 110px; height: 110px; }
+            .header h1 { font-size: 4.5rem; }
+            .message-section h2 { font-size: 4rem; }
+            .message-section p { font-size: 1.7rem; }
+            .love-jar-section h2, .memory-game-section h2, .love-notes-section h2 { font-size: 3.5rem; }
+            .photo-card img { height: 200px; }
+        }
+        @media (max-width: 576px) {
+            .memory-grid { grid-template-columns: repeat(2, 90px); }
+            .memory-card { width: 90px; height: 90px; }
+            .header h1 { font-size: 3.5rem; }
+            .header p { font-size: 2rem; }
+            .message-section h2 { font-size: 3rem; }
+            .message-section p { font-size: 1.5rem; }
+            .love-jar-section h2, .memory-game-section h2, .love-notes-section h2 { font-size: 2.8rem; }
+            .photo-caption { font-size: 1.4rem; }
+            .love-note { width: 150px; font-size: 1.2rem; }
+            .photo-card img { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="petal" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="petal" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="petal" style="left: 35%; animation-delay: 4s;"></div>
+    <div class="petal" style="left: 50%; animation-delay: 6s;"></div>
+    <div class="petal" style="left: 65%; animation-delay: 8s;"></div>
+    <div class="petal" style="left: 80%; animation-delay: 10s;"></div>
+    <div class="sparkle" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+    <div class="sparkle" style="top: 30%; left: 80%; animation-delay: 0.5s;"></div>
+    <div class="sparkle" style="top: 50%; left: 25%; animation-delay: 1s;"></div>
+    <div class="sparkle" style="top: 70%; left: 60%; animation-delay: 1.5s;"></div>
+
+    <div class="header">
+        <h1>Happy 2nd Monthsary, My Minamahal! 🦋💞</h1>
+        <p>A magical scrapbook of our love, just for you! 🌸</p>
+        <button class="interactive-btn" onclick="triggerConfetti()">Surprise Me! 🎉</button>
+        <button class="interactive-btn" onclick="openLoveLetter()">Open Your Love Letter 💌</button>
+    </div>
+
+    <div class="photo-gallery">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf1.jpg" data-lightbox="gallery" data-title="Our first magical spark ✨">
+                            <img src="gf1.jpg" alt="Our Moment 1">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf2.jpg" data-lightbox="gallery" data-title="Giggles & cuddles 🐻">
+                            <img src="gf2.jpg" alt="Our Moment 2">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf3.jpg" data-lightbox="gallery" data-title="Adventure buddies 🌈">
+                            <img src="gf3.jpg" alt="Our Moment 3">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf4.jpg" data-lightbox="gallery" data-title="Cozy dreamland 🥰">
+                            <img src="gf4.jpg" alt="Our Moment 4">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf5.jpg" data-lightbox="gallery" data-title="Silly faces forever 😜">
+                            <img src="gf5.jpg" alt="Our Moment 5">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf6.jpg" data-lightbox="gallery" data-title="Hand-in-hand always 🤝">
+                            <img src="gf6.jpg" alt="Our Moment 6">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf7.jpg" data-lightbox="gallery" data-title="Chasing sunsets 🌅">
+                            <img src="gf7.jpg" alt="Our Moment 7">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf8.jpg" data-lightbox="gallery" data-title="Yummy date nights 🍰">
+                            <img src="gf8.jpg" alt="Our Moment 8">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf9.jpg" data-lightbox="gallery" data-title="Starry-eyed love 🌟">
+                            <img src="gf9.jpg" alt="Our Moment 9">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf10.jpg" data-lightbox="gallery" data-title="Just you & me 💞">
+                            <img src="gf10.jpg" alt="Our Moment 10">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf11.jpg" data-lightbox="gallery" data-title="Forever & always 💍">
+                            <img src="gf11.jpg" alt="Our Moment 11">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf12.jpg" data-lightbox="gallery" data-title="Love in every breath 😘">
+                            <img src="gf12.jpg" alt="Our Moment 12">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="photo-card">
+                    <div class="polaroid-frame">
+                        <a href="gf13.jpg" data-lightbox="gallery" data-title="Our fairy-tale future 🏰">
+                            <img src="gf13.jpg" alt="Our Moment 13">
+                        </a>
+                        <div class="photo-caption"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="love-notes-section">
+        <h2>Love Notes 💌</h2>
+        <p>Click to reveal a special note from my heart!</p>
+        <button class="interactive-btn" onclick="addLoveNote()">Open a Love Note! 🌷</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="love-jar-section">
+        <h2>Love Jar 💕</h2>
+        <p>Click to get a sweet message from my heart!</p>
+        <button class="interactive-btn" onclick="pickLoveMessage()">Pick a Message! 🌟</button>
+        <div class="love-jar-message" id="loveJarMessage">What's inside the jar? Click to find out! 😘</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="memory-game-section">
+        <h2>Memory Match Game 🎀</h2>
+        <p>Match our moments! Flip the cards to find pairs.</p>
+        <div class="memory-grid" id="memoryGrid"></div>
+        <p id="gameStatus" style="font-family: 'Annie Use Your Telescope', cursive; font-size: 1.7rem; color: #f8b2c9; margin-top: 30px;">Matches found: 0/6</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="message-section" id="loveLetter">
+        <h2>My Minamahal</h2>
+        <p id="typedMessage"></p>
+        <div class="heart-animation">
+            <div class="heart"></div>
+        </div>
+    </div>
+
+    <footer>
+        I LOVE YOUU SOOO MUCHH, MY LOVE <3
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <!-- JSConfetti -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script>
+        // Confetti Surprise
+        const jsConfetti = new JSConfetti();
+        function triggerConfetti() {
+            jsConfetti.addConfetti({
+                emojis: ['💖', '🌸', '🦋', '✨', '🥰', '🎀', '🏰'],
+                confettiNumber: 250,
+                confettiRadius: 15,
+            });
+        }
+
+        // Love Letter Typing Animation
+        const loveLetter = document.getElementById('loveLetter');
+        const typedMessage = document.getElementById('typedMessage');
+        const messageText = "Happy 2nd monthsary mahal koooo, panibagong buwan panibagong memories ang gagawin natin ulit hehehe. Para maiba naman website naman ang gagawin ko para sa'yo hihihi syempre may katulong pa rin ni grok bobo kasi ako HAHAHAHAHA. Marami rami na rin tayong nagiging experiences at bawat experience may natututunan tayo, at sana hindi ka magsawa na mahalin ako at hinding hindi ako magsasawa na mahalin ka dahil natuto na ako sa pagkakamali ko nung unang beses kita na binitawan. Nawa'y marami pa tayong memories na magawa hanggang sa kamatayan HAHAHAHA. Thank you for being understanding mahal and I'm sorry sa mga actions ko na hindi mo nagugustuhan. Mahal na mahal kitaa sobraa, my love.";
+        function openLoveLetter() {
+            loveLetter.classList.add('active');
+            loveLetter.scrollIntoView({ behavior: 'smooth' });
+            typeMessage(messageText, typedMessage, 40);
+        }
+        function typeMessage(text, element, speed) {
+            element.innerHTML = '';
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Love Jar Messages
+        const loveMessages = [
+            "You're my favorite person to make memories with!",
+            "Every moment with you feels like a fairytale!",
+            "I love you more than all the stars in the sky!",
+            "You're my sunshine on the cloudiest days!",
+            "My heart beats only for you, mahal ko!",
+            "I can't wait for all our future adventures!",
+            "You're my forever and always, my love!",
+            "Your smile makes my world brighter!",
+            "I love how we make every day special!",
+            "You're my dream come true, Minamahal!"
+        ];
+        const loveJarMessage = document.getElementById('loveJarMessage');
+        function pickLoveMessage() {
+            loveJarMessage.classList.add('shake');
+            setTimeout(() => {
+                loveJarMessage.classList.remove('shake');
+                const randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+                loveJarMessage.innerHTML = randomMessage;
+            }, 500);
+        }
+
+        // Memory Game
+        const memoryGrid = document.getElementById('memoryGrid');
+        const gameStatus = document.getElementById('gameStatus');
+        const images = [
+            'gf1.jpg', 'gf2.jpg', 'gf3.jpg', 'gf4.jpg', 'gf5.jpg', 'gf6.jpg'
+        ];
+        const cards = [...images, ...images].map((src, index) => ({
+            id: index,
+            src: src,
+            matched: false
+        }));
+        let flippedCards = [];
+        let matchesFound = 0;
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        function initMemoryGame() {
+            memoryGrid.innerHTML = '';
+            shuffle(cards).forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('memory-card');
+                cardElement.dataset.id = card.id;
+                cardElement.innerHTML = `
+                    <div class="back">?</div>
+                    <img src="${card.src}" alt="Memory Card">
+                `;
+                cardElement.addEventListener('click', () => flipCard(cardElement, card));
+                memoryGrid.appendChild(cardElement);
+            });
+        }
+        function flipCard(cardElement, card) {
+            if (flippedCards.length < 2 && !cardElement.classList.contains('flipped') && !card.matched) {
+                cardElement.classList.add('flipped');
+                flippedCards.push({ element: cardElement, card });
+                if (flippedCards.length === 2) {
+                    checkMatch();
+                }
+            }
+        }
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            if (card1.card.src === card2.card.src) {
+                card1.card.matched = true;
+                card2.card.matched = true;
+                matchesFound++;
+                gameStatus.innerHTML = `Matches found: ${matchesFound}/6`;
+                flippedCards = [];
+                if (matchesFound === 6) {
+                    setTimeout(() => {
+                        gameStatus.innerHTML = 'You won! Our memories are forever! 💖';
+                        triggerConfetti();
+                    }, 500);
+                }
+            } else {
+                setTimeout(() => {
+                    card1.element.classList.remove('flipped');
+                    card2.element.classList.remove('flipped');
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+        initMemoryGame();
+
+        // Love Notes Functionality
+        const loveNotes = [
+            "Mahal na mahal kita, Marian Justine Mailom",
+            "Sa'yo lang 'tong puso ko mwa mwa!",
+            "Napakaganda mong babae sobra sobra",
+            "Over naman ang pagmamahal ko sa iyooo",
+            "Na sana habang buhay tayong magkasamaa",
+            "Accel > Jake",
+            "Pakiss <3",
+            "LABYUUU SO MUCHHH",
+            "Kailangan na po natin ng maraming maraming pictures hehehe",
+            "Let's eat buldak together!"
+        ];
+        function addLoveNote() {
+            const note = document.createElement('div');
+            note.classList.add('love-note');
+            const randomNote = loveNotes[Math.floor(Math.random() * loveNotes.length)];
+            note.innerHTML = randomNote;
+            const x = Math.random() * (window.innerWidth - 200);
+            const y = Math.random() * (window.innerHeight - 200);
+            note.style.left = `${x}px`;
+            note.style.top = `${y}px`;
+            document.body.appendChild(note);
+            triggerConfetti();
+        }
+    </script>
+</body>
+</html>
