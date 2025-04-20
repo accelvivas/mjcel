@@ -183,6 +183,8 @@
             display: none;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" stroke="%23e8d4f0" stroke-width="1"><path d="M30 55c-13.81 0-25-11.19-25-25S16.19 5 30 5s25 11.19 25 25-11.19 25-25 25zM30 15c-8.28 0-15 6.72-15 15s6.72 15 15 15 15-6.72 15-15-6.72-15-15-15z"/></svg>');
             background-size: 40px;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
         .message-section.active {
             display: block;
@@ -204,6 +206,9 @@
             padding: 50px;
             border-radius: 35px;
             border: 6px solid #d8b8e0; /* Soft Purple */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            box-sizing: border-box;
         }
         .heart-animation {
             margin-top: 70px;
@@ -449,14 +454,33 @@
             .love-jar-section h2, .memory-game-section h2, .love-notes-section h2 { font-size: 3.5rem; }
             .photo-card img { height: 200px; }
             .love-notes-section { padding: 50px; }
+            .message-section { padding: 50px; margin: 60px auto; }
         }
         @media (max-width: 576px) {
             .memory-grid { grid-template-columns: repeat(2, 90px); }
             .memory-card { width: 90px; height: 90px; }
             .header h1 { font-size: 3.5rem; }
             .header p { font-size: 2rem; }
-            .message-section h2 { font-size: 3rem; }
-            .message-section p { font-size: 1.5rem; }
+            .message-section {
+                padding: 30px;
+                margin: 40px auto;
+                max-width: 90%;
+                max-width: 600px;
+                border-radius: 30px;
+                background-size: 30px;
+            }
+            .message-section h2 { font-size: 2.5rem; margin-bottom: 30px; }
+            .message-section p {
+                font-size: 1.3rem;
+                line-height: 1.8;
+                padding: 20px;
+                border-radius: 20px;
+            }
+            .heart-animation { margin-top: 40px; }
+            .heart { width: 60px; height: 60px; }
+            .heart::before, .heart::after { width: 60px; height: 60px; }
+            .heart::before { top: -30px; }
+            .heart::after { left: 30px; }
             .love-jar-section h2, .memory-game-section h2, .love-notes-section h2 { font-size: 2.8rem; }
             .photo-caption { font-size: 1.4rem; }
             .love-note {
@@ -666,9 +690,8 @@
             <div class="heart"></div>
         </div>
     </div>
-
     <footer>
-        I LOVEEE YOUUU SOO MUCHH, MY LOVEE <3
+        I LOVEEE YOUUU SOOO MUCHHH, MY LOVE <3
     </footer>
 
     <!-- Bootstrap 5 JS -->
@@ -687,10 +710,11 @@
                 confettiRadius: 15,
             });
         }
+
         // Love Letter Typing Animation
         const loveLetter = document.getElementById('loveLetter');
         const typedMessage = document.getElementById('typedMessage');
-        const messageText = "Happy 2nd monthsary mahal koooo, panibagong buwan panibagong memories ang gagawin natin ulit hehehe. Para maiba naman website naman ang gagawin ko para sa'yo hihihi syempre may katulong pa rin ni grok bobo kasi ako HAHAHAHAHA. Marami rami na rin tayong nagiging experiences at bawat experience may natututunan tayo, at sana hindi ka magsawa na mahalin ako at hinding hindi ako magsasawa na mahalin ka dahil natuto na ako sa pagkakamali ko nung unang beses kita na binitawan. Nawa'y marami pa tayong memories na magawa hanggang sa kamatayan HAHAHAHA. Thank you for being understanding mahal and I'm sorry sa mga actions ko na hindi mo nagugustuhan. Mahal na mahal kitaa sobraa, my love."
+        const messageText = "Happy 2nd monthsary mahal koooo, panibagong buwan panibagong memories ang gagawin natin ulit hehehe. Para maiba naman website naman ang gagawin ko para sa'yo hihihi syempre may katulong pa rin ni grok bobo kasi ako HAHAHAHAHA. Marami rami na rin tayong nagiging experiences at bawat experience may natututunan tayo, at sana hindi ka magsawa na mahalin ako at hinding hindi ako magsasawa na mahalin ka dahil natuto na ako sa pagkakamali ko nung unang beses kita na binitawan. Nawa'y marami pa tayong memories na magawa hanggang sa kamatayan HAHAHAHA. Thank you for being understanding mahal and I'm sorry sa mga actions ko na hindi mo nagugustuhan. Mahal na mahal kitaa sobraa, my love.";
         function openLoveLetter() {
             loveLetter.classList.add('active');
             loveLetter.scrollIntoView({ behavior: 'smooth' });
@@ -851,4 +875,4 @@
         }
     </script>
 </body>
-</html>
+</html
