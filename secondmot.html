@@ -88,6 +88,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin: 15px;
             box-shadow: 0 8px 20px rgba(248, 178, 201, 0.6);
+            touch-action: manipulation; /* Improve touch responsiveness */
         }
         .interactive-btn:hover {
             transform: scale(1.25);
@@ -311,6 +312,7 @@
             transition: transform 0.5s;
             position: relative;
             border: 3px solid #fdf9f2; /* Off-White */
+            touch-action: manipulation; /* Improve touch responsiveness */
         }
         .memory-card.flipped {
             transform: rotateY(180deg);
@@ -358,7 +360,7 @@
             color: #f8b2c9; /* Pink */
         }
         .love-note {
-            position: fixed;
+            position: absolute;
             width: 200px;
             padding: 20px;
             background: #fff4e6; /* Cream */
@@ -380,9 +382,40 @@
         .love-note:nth-child(even) {
             transform: rotate(-10deg);
         }
+        .love-note .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            background: #d8b8e0; /* Soft Purple */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #f8b2c9; /* Pink */
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, background 0.2s ease;
+            touch-action: manipulation; /* Improve touch responsiveness */
+        }
+        .love-note .close-btn:hover {
+            transform: scale(1.2);
+            background: #f8b2c9; /* Pink */
+            color: #fff4e6; /* Cream */
+        }
+        .love-note.fading {
+            animation: fadeOut 0.5s ease forwards;
+        }
         @keyframes floatIn {
             0% { opacity: 0; transform: translateY(50px) rotate(0deg); }
             100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
         /* Divider */
         .divider {
@@ -415,6 +448,7 @@
             .message-section p { font-size: 1.7rem; }
             .love-jar-section h2, .memory-game-section h2, .love-notes-section h2 { font-size: 3.5rem; }
             .photo-card img { height: 200px; }
+            .love-notes-section { padding: 50px; }
         }
         @media (max-width: 576px) {
             .memory-grid { grid-template-columns: repeat(2, 90px); }
@@ -425,8 +459,20 @@
             .message-section p { font-size: 1.5rem; }
             .love-jar-section h2, .memory-game-section h2, .love-notes-section h2 { font-size: 2.8rem; }
             .photo-caption { font-size: 1.4rem; }
-            .love-note { width: 150px; font-size: 1.2rem; }
+            .love-note {
+                width: 150px;
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+            .love-note .close-btn {
+                width: 25px;
+                height: 25px;
+                font-size: 1rem;
+                top: -12px;
+                right: -12px;
+            }
             .photo-card img { height: 180px; }
+            .love-notes-section { padding: 30px; }
         }
     </style>
 </head>
@@ -589,7 +635,7 @@
 
     <div class="love-notes-section">
         <h2>Love Notes 💌</h2>
-        <p>Click to reveal a special note from my heart!</p>
+        <p>Click to reveal a special note from my heart! Tap the 'X' to close.</p>
         <button class="interactive-btn" onclick="addLoveNote()">Open a Love Note! 🌷</button>
     </div>
 
@@ -622,7 +668,7 @@
     </div>
 
     <footer>
-        I LOVE YOUU SOOO MUCHH, MY LOVE <3
+        I LOVEEE YOUUU SOO MUCHH, MY LOVEE <3
     </footer>
 
     <!-- Bootstrap 5 JS -->
@@ -641,11 +687,10 @@
                 confettiRadius: 15,
             });
         }
-
         // Love Letter Typing Animation
         const loveLetter = document.getElementById('loveLetter');
         const typedMessage = document.getElementById('typedMessage');
-        const messageText = "Happy 2nd monthsary mahal koooo, panibagong buwan panibagong memories ang gagawin natin ulit hehehe. Para maiba naman website naman ang gagawin ko para sa'yo hihihi syempre may katulong pa rin ni grok bobo kasi ako HAHAHAHAHA. Marami rami na rin tayong nagiging experiences at bawat experience may natututunan tayo, at sana hindi ka magsawa na mahalin ako at hinding hindi ako magsasawa na mahalin ka dahil natuto na ako sa pagkakamali ko nung unang beses kita na binitawan. Nawa'y marami pa tayong memories na magawa hanggang sa kamatayan HAHAHAHA. Thank you for being understanding mahal and I'm sorry sa mga actions ko na hindi mo nagugustuhan. Mahal na mahal kitaa sobraa, my love.";
+        const messageText = "Happy 2nd monthsary mahal koooo, panibagong buwan panibagong memories ang gagawin natin ulit hehehe. Para maiba naman website naman ang gagawin ko para sa'yo hihihi syempre may katulong pa rin ni grok bobo kasi ako HAHAHAHAHA. Marami rami na rin tayong nagiging experiences at bawat experience may natututunan tayo, at sana hindi ka magsawa na mahalin ako at hinding hindi ako magsasawa na mahalin ka dahil natuto na ako sa pagkakamali ko nung unang beses kita na binitawan. Nawa'y marami pa tayong memories na magawa hanggang sa kamatayan HAHAHAHA. Thank you for being understanding mahal and I'm sorry sa mga actions ko na hindi mo nagugustuhan. Mahal na mahal kitaa sobraa, my love."
         function openLoveLetter() {
             loveLetter.classList.add('active');
             loveLetter.scrollIntoView({ behavior: 'smooth' });
@@ -666,16 +711,16 @@
 
         // Love Jar Messages
         const loveMessages = [
-            "You're my favorite person to make memories with!",
-            "Every moment with you feels like a fairytale!",
-            "I love you more than all the stars in the sky!",
-            "You're my sunshine on the cloudiest days!",
-            "My heart beats only for you, mahal ko!",
-            "I can't wait for all our future adventures!",
-            "You're my forever and always, my love!",
-            "Your smile makes my world brighter!",
-            "I love how we make every day special!",
-            "You're my dream come true, Minamahal!"
+            "You're my favorite person to make memories with! ",
+            "Every moment with you feels like a fairytale! ",
+            "I love you more than all the stars in the sky! ",
+            "You're my sunshine on the cloudiest days! ",
+            "My heart beats only for you, mahal ko! ",
+            "I can't wait for all our future adventures! ",
+            "You're my forever and always, my love! ",
+            "Your smile makes my world brighter! ",
+            "I love how we make every day special! ",
+            "You're my dream come true, Minamahal! "
         ];
         const loveJarMessage = document.getElementById('loveJarMessage');
         function pickLoveMessage() {
@@ -718,6 +763,10 @@
                     <img src="${card.src}" alt="Memory Card">
                 `;
                 cardElement.addEventListener('click', () => flipCard(cardElement, card));
+                cardElement.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    flipCard(cardElement, card);
+                });
                 memoryGrid.appendChild(cardElement);
             });
         }
@@ -771,13 +820,34 @@
             const note = document.createElement('div');
             note.classList.add('love-note');
             const randomNote = loveNotes[Math.floor(Math.random() * loveNotes.length)];
-            note.innerHTML = randomNote;
-            const x = Math.random() * (window.innerWidth - 200);
-            const y = Math.random() * (window.innerHeight - 200);
+            note.innerHTML = `
+                ${randomNote}
+                <span class="close-btn" aria-label="Close love note">X</span>
+            `;
+            const loveNotesSection = document.querySelector('.love-notes-section');
+            const sectionRect = loveNotesSection.getBoundingClientRect();
+            const noteWidth = window.innerWidth < 576 ? 150 : 200;
+            const noteHeight = window.innerWidth < 576 ? 100 : 120;
+            const sectionWidth = loveNotesSection.clientWidth;
+            const sectionHeight = loveNotesSection.clientHeight;
+            const x = 10 + Math.random() * (sectionWidth - noteWidth - 20);
+            const y = 10 + Math.random() * (sectionHeight - noteHeight - 20);
             note.style.left = `${x}px`;
             note.style.top = `${y}px`;
-            document.body.appendChild(note);
+            loveNotesSection.appendChild(note);
             triggerConfetti();
+            const closeBtn = note.querySelector('.close-btn');
+            closeBtn.addEventListener('click', () => removeLoveNote(note));
+            closeBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                removeLoveNote(note);
+            });
+        }
+        function removeLoveNote(note) {
+            note.classList.add('fading');
+            setTimeout(() => {
+                note.remove();
+            }, 500);
         }
     </script>
 </body>
